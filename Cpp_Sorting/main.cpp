@@ -1,6 +1,7 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <algorithm>
 
 void print_arr(const int* const arr, const int size) {
 	for (int i = 0; i < size; ++i) {
@@ -141,6 +142,94 @@ void bubble_sort_vec(std::vector<int>& vec) {
 	}
 }
 
+void merge_arr(int* arr, int* left, int* right, int size) {
+	int ind_left = 0;
+	int ind_right = 0;
+	int ind_arr = 0;
+	int size_left = size / 2;
+	int size_right = size - size_left;
+	while (ind_left < size_left && ind_right < size_right) {
+		if (left[ind_left] < right[ind_right]) {
+			arr[ind_arr] = left[ind_left];
+			++ind_left;
+		}
+		else {
+			arr[ind_arr] = right[ind_right];
+			++ind_right;
+		}
+		++ind_arr;
+	}
+	while (ind_left < size_left) {
+		arr[ind_arr] = left[ind_left];
+		++ind_left;
+		++ind_arr;
+	}
+	while (ind_right < size_right) {
+		arr[ind_arr] = right[ind_right];
+		++ind_right;
+		++ind_arr;
+	}
+}
+
+void merge_sort_arr(int* arr, int size) {
+	if (size < 2)
+		return;
+	int size_left = size / 2;
+	int size_right = size - size_left;
+	int* left = new int[size_left];
+	int* right = new int[size_right];
+	std::copy(arr, arr + size_left, left);
+	std::copy(arr + size_left, arr + size, right);
+
+	merge_sort_arr(left, size_left);
+	merge_sort_arr(right, size_right);
+	merge_arr(arr, left, right, size);
+
+	delete[] left;
+	delete[] right;
+}
+
+void merge_vec(std::vector<int>& vec, std::vector<int>& left, std::vector<int>& right) {
+	int ind_left = 0;
+	int ind_right = 0;
+	int ind_vec = 0;
+	while (ind_left < left.size() && ind_right < right.size()) {
+		if (left[ind_left] < right[ind_right]) {
+			vec[ind_vec] = left[ind_left];
+			++ind_left;
+		}
+		else {
+			vec[ind_vec] = right[ind_right];
+			++ind_right;
+		}
+		++ind_vec;
+	}
+	while (ind_left < left.size()) {
+		vec[ind_vec] = left[ind_left];
+		++ind_left;
+		++ind_vec;
+	}
+	while (ind_right < right.size()) {
+		vec[ind_vec] = right[ind_right];
+		++ind_right;
+		++ind_vec;
+	}
+}
+
+void merge_sort_vec(std::vector<int>& vec) {
+	int size = vec.size();
+	if (size < 2)
+		return;
+	int size_left = vec.size() / 2;
+	int size_right = size - size_left;
+	std::vector<int> left, right;
+	left.assign(vec.begin(), vec.begin() + size_left);
+	right.assign(vec.begin() + size_left, vec.end());
+	merge_sort_vec(left);
+	merge_sort_vec(right);
+	merge_vec(vec, left, right);
+}
+
 int main() {
 	int test_arr[] = { 5, 1, 7, 2, 9, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
@@ -151,8 +240,8 @@ int main() {
 	//print_arr_std(test_arr_std);
 	print_vec(test_vec);
 
-	insertion_sort_arr(test_arr, size);
-	insertion_sort_vec(test_vec);
+	merge_sort_arr(test_arr, size);
+	merge_sort_vec(test_vec);
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
