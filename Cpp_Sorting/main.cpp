@@ -223,11 +223,39 @@ void merge_sort_vec(std::vector<int>& vec) {
 	int size_left = vec.size() / 2;
 	int size_right = size - size_left;
 	std::vector<int> left, right;
-	left.assign(vec.begin(), vec.begin() + size_left);
+	left.assign(vec.begin(), vec.begin() + size_left); // merge sort is not in-place
 	right.assign(vec.begin() + size_left, vec.end());
 	merge_sort_vec(left);
 	merge_sort_vec(right);
 	merge_vec(vec, left, right);
+}
+
+int partition_arr(int* arr, int size, int ind_low, int ind_high) {
+	int ind_pivot = ind_high;
+	int val_pivot = arr[ind_pivot];
+	int ind_partition = ind_low;
+	for (int i = ind_low; i < ind_high; ++i) { // from ind_low -> ind_high - 1 (don't want to reach ind_pivot = ind_high)
+		if (arr[i] < val_pivot) {
+			swap(arr[ind_partition], arr[i]);
+			++ind_partition;
+		}
+	}
+	swap(arr[ind_partition], arr[ind_pivot]);
+	return ind_partition;
+}
+
+void quick_sort_arr_helper(int* arr, int size, int ind_low, int ind_high) {
+	if (ind_low < ind_high) {
+		int ind_partition = partition_arr(arr, size, ind_low, ind_high);
+		int size_left = ind_partition - ind_low;
+		int size_right = size - size_left - 1;
+		quick_sort_arr_helper(arr, size_left, ind_low, ind_partition - 1);
+		quick_sort_arr_helper(arr, size_right, ind_partition + 1, ind_high);
+	}
+}
+
+void quick_sort_arr(int* arr, int size) {
+	quick_sort_arr_helper(arr, size, 0, size - 1);
 }
 
 int main() {
@@ -240,8 +268,8 @@ int main() {
 	//print_arr_std(test_arr_std);
 	print_vec(test_vec);
 
-	merge_sort_arr(test_arr, size);
-	merge_sort_vec(test_vec);
+	quick_sort_arr(test_arr, size);
+	//quick_sort_vec(test_vec);
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
