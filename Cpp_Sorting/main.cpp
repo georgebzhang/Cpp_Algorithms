@@ -244,9 +244,15 @@ int partition_arr(int* arr, int size, int ind_low, int ind_high) {
 	return ind_partition;
 }
 
+int partition_rand_arr(int* arr, int size, int ind_low, int ind_high) {
+	int ind_pivot = rand() % size + ind_low; // random int from ind_low -> ind_high
+	swap(arr[ind_high], arr[ind_pivot]);
+	return partition_arr(arr, size, ind_low, ind_high);
+}
+
 void quick_sort_arr_helper(int* arr, int size, int ind_low, int ind_high) {
 	if (ind_low < ind_high) {
-		int ind_partition = partition_arr(arr, size, ind_low, ind_high);
+		int ind_partition = partition_rand_arr(arr, size, ind_low, ind_high);
 		int size_left = ind_partition - ind_low;
 		int size_right = size - size_left - 1;
 		quick_sort_arr_helper(arr, size_left, ind_low, ind_partition - 1);
@@ -259,7 +265,9 @@ void quick_sort_arr(int* arr, int size) {
 }
 
 int main() {
-	int test_arr[] = { 5, 1, 7, 2, 9, 3, 6 };
+	srand(69);
+
+	int test_arr[] = { 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
 	//std::array<int, 7> test_arr_std{ 5, 1, 7, 2, 9, 3, 6 };
 	std::vector<int> test_vec{ 5, 1, 7, 2, 9, 3, 6 };
