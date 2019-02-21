@@ -85,6 +85,36 @@ void selection_sort_vec(std::vector<int>& vec) {
 	}
 }
 
+void bubble_sort_arr(int* arr, int size) {
+	int ind_last_sorted = size;
+	bool is_sorted = false;
+	while (!is_sorted) {
+		is_sorted = true;
+		for (int i = 0; i < ind_last_sorted - 1; ++i) {
+			if (arr[i] > arr[i + 1]) {
+				swap(arr[i], arr[i + 1]);
+				is_sorted = false;
+			}
+		}
+		--ind_last_sorted;
+	}
+}
+
+void bubble_sort_vec(std::vector<int>& vec) {
+	int ind_last_sorted = vec.size();
+	bool is_sorted = false;
+	while (!is_sorted) {
+		is_sorted = true;
+		for (int i = 0; i < ind_last_sorted - 1; ++i) {
+			if (vec[i] > vec[i + 1]) {
+				swap(vec[i], vec[i + 1]);
+				is_sorted = false;
+			}
+		}
+		--ind_last_sorted;
+	}
+}
+
 int main() {
 	int test_arr[] = { 5, 1, 7, 2, 9, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
@@ -95,8 +125,8 @@ int main() {
 	//print_arr_std(test_arr_std);
 	print_vec(test_vec);
 
-	selection_sort_arr(test_arr, size);
-	selection_sort_vec(test_vec);
+	bubble_sort_arr(test_arr, size);
+	bubble_sort_vec(test_vec);
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
