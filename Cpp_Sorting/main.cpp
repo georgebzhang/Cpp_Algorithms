@@ -230,7 +230,7 @@ void merge_sort_vec(std::vector<int>& vec) {
 	merge_vec(vec, left, right);
 }
 
-int partition_arr(int* arr, int size, int ind_low, int ind_high) {
+int partition_arr(int* arr, const int size, const int ind_low, const int ind_high) {
 	int ind_pivot = ind_high;
 	int val_pivot = arr[ind_pivot];
 	int ind_partition = ind_low;
@@ -244,24 +244,56 @@ int partition_arr(int* arr, int size, int ind_low, int ind_high) {
 	return ind_partition;
 }
 
-int partition_rand_arr(int* arr, int size, int ind_low, int ind_high) {
-	int ind_pivot = rand() % size + ind_low; // random int from ind_low -> ind_high
+int partition_rand_arr(int* arr, const int size, const int ind_low, const int ind_high) {
+	int ind_pivot = rand() % size + ind_low; // random int from ind_low -> ind_high, can use size here because we specify size_left and size_right in calling function
 	swap(arr[ind_high], arr[ind_pivot]);
 	return partition_arr(arr, size, ind_low, ind_high);
 }
 
-void quick_sort_arr_helper(int* arr, int size, int ind_low, int ind_high) {
+void quick_sort_helper_arr(int* arr, const int size, const int ind_low, const int ind_high) {
 	if (ind_low < ind_high) {
 		int ind_partition = partition_rand_arr(arr, size, ind_low, ind_high);
 		int size_left = ind_partition - ind_low;
 		int size_right = size - size_left - 1;
-		quick_sort_arr_helper(arr, size_left, ind_low, ind_partition - 1);
-		quick_sort_arr_helper(arr, size_right, ind_partition + 1, ind_high);
+		quick_sort_helper_arr(arr, size_left, ind_low, ind_partition - 1);
+		quick_sort_helper_arr(arr, size_right, ind_partition + 1, ind_high);
 	}
 }
 
-void quick_sort_arr(int* arr, int size) {
-	quick_sort_arr_helper(arr, size, 0, size - 1);
+void quick_sort_arr(int* arr, const int size) {
+	quick_sort_helper_arr(arr, size, 0, size - 1);
+}
+
+int partition_vec(std::vector<int>& vec, int ind_low, int ind_high) {
+	int ind_pivot = ind_high;
+	int val_pivot = vec[ind_pivot];
+	int ind_partition = ind_low;
+	for (int i = ind_low; i < ind_high; ++i) {
+		if (vec[i] < val_pivot) {
+			swap(vec[ind_partition], vec[i]);
+			++ind_partition;
+		}
+	}
+	swap(vec[ind_partition], vec[ind_pivot]);
+	return ind_partition;
+}
+
+int partition_rand_vec(std::vector<int>& vec, int ind_low, int ind_high) {
+	int ind_pivot = rand() % (ind_high - ind_low) + ind_low; // random int from ind_low -> ind_high
+	swap(vec[ind_high], vec[ind_pivot]);
+	return partition_vec(vec, ind_low, ind_high);
+}
+
+void quick_sort_helper_vec(std::vector<int>& vec, int ind_low, int ind_high) {
+	if (ind_low < ind_high) {
+		int ind_partition = partition_rand_vec(vec, ind_low, ind_high);
+		quick_sort_helper_vec(vec, ind_low, ind_partition - 1);
+		quick_sort_helper_vec(vec, ind_partition + 1, ind_high);
+	}
+}
+
+void quick_sort_vec(std::vector<int>& vec) {
+	quick_sort_helper_vec(vec, 0, vec.size() - 1);
 }
 
 int main() {
@@ -270,14 +302,14 @@ int main() {
 	int test_arr[] = { 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
 	//std::array<int, 7> test_arr_std{ 5, 1, 7, 2, 9, 3, 6 };
-	std::vector<int> test_vec{ 5, 1, 7, 2, 9, 3, 6 };
+	std::vector<int> test_vec{ 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 
 	print_arr(test_arr, size);
 	//print_arr_std(test_arr_std);
 	print_vec(test_vec);
 
 	quick_sort_arr(test_arr, size);
-	//quick_sort_vec(test_vec);
+	quick_sort_vec(test_vec);
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
