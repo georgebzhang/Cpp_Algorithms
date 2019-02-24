@@ -3,6 +3,9 @@
 #include <vector>
 #include <algorithm>
 
+#include "ArrayStack.h"
+#include "ListStack.h"
+
 void print_arr(const int* const arr, const int size) {
 	for (int i = 0; i < size; ++i) {
 		std::cout << arr[i] << " ";
@@ -296,16 +299,12 @@ void quick_sort_vec(std::vector<int>& vec) {
 	quick_sort_helper_vec(vec, 0, vec.size() - 1);
 }
 
-int main() {
-	srand(69);
-
+void test_sort() {
 	int test_arr[] = { 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
-	//std::array<int, 7> test_arr_std{ 5, 1, 7, 2, 9, 3, 6 };
 	std::vector<int> test_vec{ 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 
 	print_arr(test_arr, size);
-	//print_arr_std(test_arr_std);
 	print_vec(test_vec);
 
 	quick_sort_arr(test_arr, size);
@@ -313,6 +312,27 @@ int main() {
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
+}
+
+int main() {
+	srand(69);
+
+	ArrayStack<int> hi;
+	for (int i = 0; i <= 10; ++i) {
+		hi.push(i);
+	}
+	std::cout << hi.top() << std::endl;
+
+	// ListStack<int>* hi2 = new ListStack<int>(); // if you want on heap
+	ListStack<int> hi2;
+	std::cout << hi2.empty() << std::endl;
+	hi2.push(1);
+	hi2.push(2);
+	hi2.push(3);
+
+	
+
+	
 
 	std::cin.get();
 }
