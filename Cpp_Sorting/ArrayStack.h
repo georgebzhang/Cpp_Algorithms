@@ -10,10 +10,6 @@ private:
 	int length = 0;
 
 public:
-	~ArrayStack() {
-		delete[] data;
-	}
-
 	void push(T t) {
 		data[length] = t;
 		++length;
@@ -21,19 +17,24 @@ public:
 
 	void pop() {
 		if (empty())
-			std::cout << "Stack is empty" << std::endl;
+			throw "Stack is empty";
 		else
 			--length;
 	}
 
 	T top() {
 		if (empty())
-			std::cout << "Stack is empty" << std::endl;
+			throw "Stack is empty";
 		else
 			return data[length - 1];
 	}
 
 	bool empty() {
 		return length == 0;
+	}
+
+	~ArrayStack() {
+		std::cout << "called ArrayStack destructor" << std::endl;
+		delete[] data;
 	}
 };

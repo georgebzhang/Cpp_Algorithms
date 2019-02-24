@@ -9,12 +9,12 @@ private:
 		T data;
 		Node *next;
 
-		~Node() {
+		~Node() { // unnecessary
 			std::cout << "called Node destructor" << std::endl;
 		}
 	};
 
-	Node* head = NULL;
+	Node* head = nullptr;
 
 public:
 	void push(T t) {
@@ -26,7 +26,7 @@ public:
 
 	void pop() {
 		if (empty())
-			std::cout << "Stack is empty" << std::endl;
+			throw "Stack is empty";
 		else {
 			Node *ptr = head;
 			head = head->next;
@@ -36,10 +36,10 @@ public:
 
 	T top() {
 		if (empty())
-			std::cout << "Stack is empty" << std::endl;
-		else {
+			throw "Stack is empty";
+		else
 			return head->data;
-		}
+		
 	}
 
 	bool empty() {
