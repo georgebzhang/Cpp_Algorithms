@@ -316,45 +316,24 @@ void test_sort() {
 	print_vec(test_vec);
 }
 
-int main() {
-	srand(69);
+void test_ArrayStack() {
+	ArrayStack<int> hi;
+	for (int i = 0; i <= 10; ++i) {
+		hi.push(i);
+	}
+	std::cout << hi.top() << std::endl;
+}
 
-	//ArrayStack<int> hi;
-	//for (int i = 0; i <= 10; ++i) {
-	//	hi.push(i);
-	//}
-	//std::cout << hi.top() << std::endl;
+void test_ListStack() {
+	// ListStack<int>* hi2 = new ListStack<int>(); // if you want on heap
+	ListStack<int> hi2;
+	std::cout << hi2.empty() << std::endl;
+	hi2.push(1);
+	hi2.push(2);
+	hi2.push(3);
+}
 
-	//// ListStack<int>* hi2 = new ListStack<int>(); // if you want on heap
-	//ListStack<int> hi2;
-	//std::cout << hi2.empty() << std::endl;
-	//hi2.push(1);
-	//hi2.push(2);
-	//hi2.push(3);
-
-
-	//ListQueue<int> hi3;
-	//std::cout << hi3.empty() << std::endl;
-	//hi3.enqueue(1);
-	//hi3.enqueue(2);
-	//hi3.enqueue(3);
-	//std::cout << hi3.front() << std::endl;
-	//hi3.dequeue();
-	//std::cout << hi3.front() << std::endl;
-	//hi3.dequeue();
-	//std::cout << hi3.front() << std::endl;
-	//hi3.dequeue();
-
-
-	//ListQueue<int>* hi4 = new ListQueue<int>();
-	//hi4->enqueue(1);
-	//hi4->enqueue(2);
-	//hi4->enqueue(3);
-	//delete hi4;
-
-	//hi4 = new ListQueue<int>();
-	//std::cout << hi4->empty() << std::endl;
-
+void test_ArrayQueue() {
 	ArrayQueue<int> hi5;
 	std::cout << hi5.empty() << std::endl;
 	hi5.enqueue(1);
@@ -373,6 +352,35 @@ int main() {
 	hi6->enqueue(2);
 	hi6->enqueue(3);
 	delete hi6;
+}
+
+void test_ListQueue() {
+	ListQueue<int> hi3;
+	std::cout << hi3.empty() << std::endl;
+	hi3.enqueue(1);
+	hi3.enqueue(2);
+	hi3.enqueue(3);
+	std::cout << hi3.front() << std::endl;
+	hi3.dequeue();
+	std::cout << hi3.front() << std::endl;
+	hi3.dequeue();
+	std::cout << hi3.front() << std::endl;
+	hi3.dequeue();
+
+	//ListQueue<int>* hi4 = new ListQueue<int>();
+	//hi4->enqueue(1);
+	//hi4->enqueue(2);
+	//hi4->enqueue(3);
+	//delete hi4;
+
+	//hi4 = new ListQueue<int>();
+	//std::cout << hi4->empty() << std::endl;
+}
+
+int main() {
+	srand(69);
+
+	test_ListQueue();
 
 	std::cin.get();
 }

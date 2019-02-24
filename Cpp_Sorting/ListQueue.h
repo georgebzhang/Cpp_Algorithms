@@ -27,8 +27,7 @@ public:
 			last = n;
 		}
 		else {
-			Node* ptr = last;
-			ptr->next = n;
+			last->next = n;
 			last = n;
 		}
 	}
