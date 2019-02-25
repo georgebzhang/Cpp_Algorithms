@@ -384,17 +384,13 @@ void test_ListQueue() {
 void test_NodeList() {
 	NodeList<int> hi;
 	std::cout << "empty " <<  hi.empty() << std::endl;
-	//hi.insert_front(2);
-	//hi.insert_front(3);
-	//hi.insert_front(4);
-	//hi.insert_back(1);
-	//hi.insert_front(5);
-	hi.insert(0, 69);
 	hi.insert_front(2);
 	hi.insert_front(3);
 	hi.insert_front(4);
 	hi.insert_back(1);
 	hi.insert_front(5);
+	hi.print();
+	hi.insert(5, 0);
 	hi.print();
 	//hi.remove(2);
 	//hi.print();

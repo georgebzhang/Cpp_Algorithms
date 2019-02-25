@@ -96,7 +96,7 @@ public:
 		if (index == 0) {
 			insert_front(t);
 		}
-		else if (index == length - 1) {
+		else if (index == length) {
 			insert_back(t);
 		}
 		else { // if index is between front and back
