@@ -44,5 +44,23 @@
     <ClInclude Include="NodeList.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PriorityQueue.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeapPriorityQueue.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Set.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OrderedSet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

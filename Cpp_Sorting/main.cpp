@@ -319,10 +319,12 @@ void test_sort() {
 
 void test_ArrayStack() {
 	ArrayStack<int> hi;
-	for (int i = 0; i <= 10; ++i) {
+	for (int i = 0; i <= 33; ++i) {
 		hi.push(i);
+		std::cout << "loop" << i << std::endl;
 	}
-	std::cout << hi.top() << std::endl;
+	//std::cout << hi.top() << std::endl;
+	hi.print();
 }
 
 void test_ListStack() {
@@ -402,7 +404,10 @@ int main() {
 	srand(69);
 
 	//test_ListQueue();
-	test_NodeList();
+	//test_NodeList();
+	test_ArrayStack();
+
+	std::cout << "Done with tests" << std::endl;
 
 	std::cin.get();
 }

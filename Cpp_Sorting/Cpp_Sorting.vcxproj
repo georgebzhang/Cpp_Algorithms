@@ -120,12 +120,18 @@
   <ItemGroup>
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="BinaryHeapPriorityQueue.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListQueue.h" />
     <ClInclude Include="ListStack.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="NodeList.h" />
+    <ClInclude Include="OrderedSet.h" />
+    <ClInclude Include="PriorityQueue.h" />
     <ClInclude Include="Queue.h" />
+    <ClInclude Include="Set.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,7 @@ template<typename T>
 class ArrayQueue : Queue<T>
 {
 private:
-	static const int MAX_CAPACITY = 100;
+	static const int MAX_CAPACITY = 100; // should code growing the array by amortized doubling, but I'm lazy...
 	T* data = new T[MAX_CAPACITY];
 	int ind_front = 0, ind_back = 0;
 
