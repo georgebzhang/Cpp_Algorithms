@@ -91,9 +91,7 @@ public:
 	}
 
 	void insert(int index, T t) {
-		if (empty())
-			throw "List is empty";
-		if (index >= length)
+		if (index > length) // if length == 0 and index == 0, we should insert
 			throw "Index exceeds length";
 		if (index == 0) {
 			insert_front(t);
