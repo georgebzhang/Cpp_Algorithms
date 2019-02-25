@@ -394,7 +394,14 @@ void test_NodeList() {
 
 void test_ArraySet() {
 	ArraySet<int> s;
-
+	s.insert(1);
+	s.insert(2);
+	s.insert(2);
+	s.insert(3);
+	s.remove(2);
+	s.insert(2);
+	s.remove(0);
+	s.print();
 }
 
 int main() {
