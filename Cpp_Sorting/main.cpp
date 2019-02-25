@@ -7,6 +7,7 @@
 #include "ListStack.h"
 #include "ArrayQueue.h"
 #include "ListQueue.h"
+#include "NodeList.h"
 
 void print_arr(const int* const arr, const int size) {
 	for (int i = 0; i < size; ++i) {
@@ -365,7 +366,10 @@ void test_ListQueue() {
 	std::cout << hi3.front() << std::endl;
 	hi3.dequeue();
 	std::cout << hi3.front() << std::endl;
+	hi3.enqueue(4);
+	std::cout << hi3.front() << std::endl;
 	hi3.dequeue();
+	std::cout << hi3.front() << std::endl;
 
 	//ListQueue<int>* hi4 = new ListQueue<int>();
 	//hi4->enqueue(1);
@@ -377,10 +381,27 @@ void test_ListQueue() {
 	//std::cout << hi4->empty() << std::endl;
 }
 
+void test_NodeList() {
+	NodeList<int> hi;
+	std::cout << "empty " <<  hi.empty() << std::endl;
+	hi.insert_front(2);
+	hi.insert_front(3);
+	hi.insert_front(4);
+	hi.insert_back(1);
+	hi.insert_front(5);
+	hi.insert(2, 69);
+	hi.print();
+	hi.remove(2);
+	hi.print();
+	std::cout << "front " << hi.front() << std::endl;
+	std::cout << "back " << hi.back() << std::endl;
+}
+
 int main() {
 	srand(69);
 
-	test_ListQueue();
+	//test_ListQueue();
+	test_NodeList();
 
 	std::cin.get();
 }

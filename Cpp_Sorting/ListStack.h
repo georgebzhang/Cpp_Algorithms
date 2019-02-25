@@ -18,10 +18,10 @@ private:
 
 public:
 	void push(T t) {
-		Node* ptr = new Node();
-		ptr->data = t;
-		ptr->next = head;
-		head = ptr;
+		Node* n = new Node();
+		n->data = t;
+		n->next = head;
+		head = n;
 	}
 
 	void pop() {

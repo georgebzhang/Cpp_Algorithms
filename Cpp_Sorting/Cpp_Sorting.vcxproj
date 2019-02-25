@@ -120,8 +120,10 @@
   <ItemGroup>
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="ListQueue.h" />
     <ClInclude Include="ListStack.h" />
+    <ClInclude Include="NodeList.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>

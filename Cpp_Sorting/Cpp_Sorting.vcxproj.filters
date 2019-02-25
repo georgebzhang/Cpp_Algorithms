@@ -38,5 +38,11 @@
     <ClInclude Include="ArrayQueue.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeList.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,7 +7,7 @@ class ListQueue : Queue<T>
 private:
 	struct Node {
 		T data;
-		Node* next;
+		Node* next = nullptr;
 
 		~Node() { // unnecessary
 			std::cout << "called Node destructor" << std::endl;
@@ -21,7 +21,6 @@ public:
 	void enqueue(T t) {
 		Node* n = new Node();
 		n->data = t;
-		n->next = nullptr;
 		if (empty()) {
 			first = n;
 			last = n;
