@@ -14,7 +14,7 @@ public:
 		std::cout << "Growing array" << std::endl;
 		capacity *= 2;
 		T* data_new = new T[capacity];
-		for (int i = 0; i < length; ++i) {
+		for (int i = 0; i < capacity; ++i) { // length == capacity
 			data_new[i] = data[i];
 		}
 		delete[] data;

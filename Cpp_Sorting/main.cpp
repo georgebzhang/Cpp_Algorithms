@@ -337,24 +337,15 @@ void test_ListStack() {
 }
 
 void test_ArrayQueue() {
-	ArrayQueue<int> hi5;
-	std::cout << hi5.empty() << std::endl;
-	hi5.enqueue(1);
-	hi5.enqueue(2);
-	hi5.enqueue(3);
-	std::cout << hi5.front() << std::endl;
-	hi5.dequeue();
-	std::cout << hi5.front() << std::endl;
-	hi5.dequeue();
-	std::cout << hi5.front() << std::endl;
-	hi5.dequeue();
-	std::cout << hi5.empty() << std::endl;
-
-	ArrayQueue<int>* hi6 = new ArrayQueue<int>();
-	hi6->enqueue(1);
-	hi6->enqueue(2);
-	hi6->enqueue(3);
-	delete hi6;
+	ArrayQueue<int> hi;
+	for (int i = 0; i <= 16; ++i) {
+		hi.enqueue(i);
+		std::cout << "loop" << i << std::endl;
+	}
+	std::cout << hi.front() << std::endl;
+	hi.print();
+	hi.dequeue();
+	hi.print();
 }
 
 void test_ListQueue() {
@@ -405,7 +396,7 @@ int main() {
 
 	//test_ListQueue();
 	//test_NodeList();
-	test_ArrayStack();
+	test_ArrayQueue();
 
 	std::cout << "Done with tests" << std::endl;
 
