@@ -62,5 +62,8 @@
     <ClInclude Include="OrderedSet.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ArraySet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,6 +19,14 @@ private:
 	Node* tail = nullptr;
 	int length = 0;
 
+	Node* find(int index) { // helper function for insert(...) and remove(...)
+		Node* ptr = head;
+		for (int i = 0; i < index; ++i) { // not <= index, since we do ->next during i = 0
+			ptr = ptr->next;
+		}
+		return ptr;
+	}
+
 public:
 	void insert_front(T t) {
 		Node* n = new Node();
@@ -80,14 +88,6 @@ public:
 			delete ptr;
 		}
 		--length;
-	}
-
-	Node* find(int index) { // helper function for insert(...) and remove(...)
-		Node* ptr = head;
-		for (int i = 0; i < index; ++i) { // not <= index, since we do ->next during i = 0
-			ptr = ptr->next;
-		}
-		return ptr;
 	}
 
 	void insert(int index, T t) {

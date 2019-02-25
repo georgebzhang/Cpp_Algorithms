@@ -9,7 +9,6 @@ private:
 	T* data = new T[capacity];
 	int length = 0; // how many elements in Stack
 
-public:
 	void grow_array() { // amortized doubling
 		std::cout << "Growing array" << std::endl;
 		capacity *= 2;
@@ -21,6 +20,9 @@ public:
 		data = data_new;
 	}
 
+
+
+public:
 	void push(T t) {
 		if (length == capacity)
 			grow_array();

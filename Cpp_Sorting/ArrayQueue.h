@@ -10,7 +10,6 @@ private:
 	int ind_front = 0, ind_back = 0;
 	int length = 0; // how many elements in Stack
 
-public:
 	void grow_array() { // amortized doubling
 		std::cout << "Growing array" << std::endl;
 		capacity *= 2;
@@ -22,6 +21,7 @@ public:
 		data = data_new;
 	}
 
+public:
 	void enqueue(T t) {
 		if (length == capacity - 1) // not == capacity, because b will mod to index 0 and equal f
 			grow_array();

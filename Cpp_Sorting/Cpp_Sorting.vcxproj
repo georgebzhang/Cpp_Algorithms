@@ -119,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayQueue.h" />
+    <ClInclude Include="ArraySet.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="BinaryHeapPriorityQueue.h" />
     <ClInclude Include="List.h" />

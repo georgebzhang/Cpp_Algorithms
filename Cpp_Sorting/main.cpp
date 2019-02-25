@@ -8,6 +8,7 @@
 #include "ArrayQueue.h"
 #include "ListQueue.h"
 #include "NodeList.h"
+#include "ArraySet.h"
 
 void print_arr(const int* const arr, const int size) {
 	for (int i = 0; i < size; ++i) {
@@ -391,12 +392,18 @@ void test_NodeList() {
 	std::cout << "back " << hi.back() << std::endl;
 }
 
+void test_ArraySet() {
+	ArraySet<int> s;
+
+}
+
 int main() {
 	srand(69);
 
 	//test_ListQueue();
 	//test_NodeList();
-	test_ArrayQueue();
+	//test_ArrayQueue();
+	test_ArraySet();
 
 	std::cout << "Done with tests" << std::endl;
 
