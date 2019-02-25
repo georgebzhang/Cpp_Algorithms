@@ -15,9 +15,9 @@ private:
 		}
 	};
 
-	int length = 0;
 	Node* head = nullptr;
 	Node* tail = nullptr;
+	int length = 0;
 
 public:
 	void insert_front(T t) {
@@ -109,8 +109,8 @@ public:
 			n->prev = n_index->prev;
 			n->next = n_index;
 			n_index->prev = n;
+			++length; // not outside of else, since length is incremented in insert_front(...) and insert_back(...)
 		}
-		++length;
 	}
 
 	void remove(int index) {
@@ -129,8 +129,8 @@ public:
 			n_index->prev->next = n_index->next;
 			n_index->next->prev = n_index->prev;
 			delete n_index;
+			--length; // not outside of else, since length is decremented in insert_front(...) and insert_back(...)
 		}
-		--length;
 	}
 
 	T front() {

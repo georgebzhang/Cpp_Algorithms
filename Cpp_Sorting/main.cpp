@@ -389,10 +389,10 @@ void test_NodeList() {
 	hi.insert_front(4);
 	hi.insert_back(1);
 	hi.insert_front(5);
-	hi.insert(2, 69);
+	hi.insert(0, 69);
 	hi.print();
-	hi.remove(2);
-	hi.print();
+	//hi.remove(2);
+	//hi.print();
 	std::cout << "front " << hi.front() << std::endl;
 	std::cout << "back " << hi.back() << std::endl;
 }
