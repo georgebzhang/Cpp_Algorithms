@@ -10,15 +10,19 @@ private:
 		// we compare prev and next to nullptr in this implementation
 		Node* prev = nullptr;
 		Node* next = nullptr;
+
+		~Node() {
+			std::cout << "Called Node destructor" << std::endl;
+		}
 	};
 
 	Node* head = nullptr;
 
-	bool empty() {
+	bool empty() { // helper function for insert(...)
 		return head == nullptr;
 	}
 
-	Node* find(T t) {
+	Node* find(T t) { // helper function for remove(...)
 		Node* ptr = head;
 		while (ptr != nullptr) {
 			if (ptr->data == t)
@@ -83,5 +87,14 @@ public:
 			ptr = ptr->next;
 		}
 		std::cout << std::endl;
+	}
+
+	~ListSet() { // memory management
+		std::cout << "called ListSet destructor" << std::endl;
+		while (!empty()) {
+			Node* ptr = head;
+			head = head->next;
+			delete ptr;
+		}
 	}
 };

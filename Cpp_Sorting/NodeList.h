@@ -165,4 +165,13 @@ public:
 			std::cout << std::endl;
 		}
 	}
+
+	~NodeList() {
+		std::cout << "called NodeList destructor" << std::endl;
+		while (!empty()) {
+			Node* ptr = head;
+			head = head->next;
+			delete ptr;
+		}
+	}
 };

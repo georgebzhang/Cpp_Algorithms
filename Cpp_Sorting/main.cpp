@@ -424,8 +424,8 @@ int main() {
 	//test_ListQueue();
 	//test_NodeList();
 	//test_ArrayQueue();
-	test_ArraySet();
-	//test_ListSet();
+	//test_ArraySet();
+	test_ListSet();
 
 	std::cout << "Done with tests" << std::endl;
 

@@ -68,5 +68,8 @@
     <ClInclude Include="ListSet.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="ArrayOrderedSet.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

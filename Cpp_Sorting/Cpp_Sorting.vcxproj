@@ -118,6 +118,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayOrderedSet.h" />
     <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArraySet.h" />
     <ClInclude Include="ArrayStack.h" />

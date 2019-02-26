@@ -5,11 +5,11 @@ template<typename T>
 class ArraySet : Set<T>
 {
 private:
-	int capacity = 100; // will implement amortized doubling later
+	int capacity = 100; // TODO: implement amortized doubling
 	T* data = new T[capacity];
 	int length = 0;
 
-	int find(T t) {
+	int find(T t) { // helper functions for remove(...) and has(...)
 		for (int i = 0; i < length; ++i) {
 			if (t == data[i])
 				return i;
@@ -44,5 +44,10 @@ public:
 			std::cout << data[i] << " ";
 		}
 		std::cout << std::endl;
+	}
+
+	~ArraySet() { // memory management
+		std::cout << "called ArraySet destructor" << std::endl;
+		delete[] data;
 	}
 };
