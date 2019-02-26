@@ -1,7 +1,7 @@
 #pragma once
 
 template<typename T>
-class Set
+class Set // Set is a value-based (as opposed to position-based) data structure
 {
 public:
 	virtual void insert(T t) = 0;

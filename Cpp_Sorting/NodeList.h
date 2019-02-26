@@ -7,8 +7,8 @@ class NodeList : List<T>
 private:
 	struct Node {
 		T data;
-		Node* prev = nullptr;
-		Node* next = nullptr;
+		Node* prev;
+		Node* next;
 
 		~Node() {
 			std::cout << "called Node destructor" << std::endl;

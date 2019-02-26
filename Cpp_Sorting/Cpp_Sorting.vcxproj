@@ -124,6 +124,7 @@
     <ClInclude Include="BinaryHeapPriorityQueue.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListQueue.h" />
+    <ClInclude Include="ListSet.h" />
     <ClInclude Include="ListStack.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="NodeList.h" />

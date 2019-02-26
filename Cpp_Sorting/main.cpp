@@ -9,6 +9,7 @@
 #include "ListQueue.h"
 #include "NodeList.h"
 #include "ArraySet.h"
+#include "ListSet.h"
 
 void print_arr(const int* const arr, const int size) {
 	for (int i = 0; i < size; ++i) {
@@ -404,13 +405,28 @@ void test_ArraySet() {
 	s.print();
 }
 
+void test_ListSet() {
+	ListSet<int> s;
+	std::cout << "empty " << s.empty() << std::endl;
+	s.insert(1);
+	s.insert(2);
+	s.insert(3);
+	s.insert(4);
+	s.insert(5);
+	std::cout << "has " << s.has(5) << std::endl;
+	s.remove(5);
+	std::cout << "has " << s.has(5) << std::endl;
+	s.print();
+}
+
 int main() {
 	srand(69);
 
 	//test_ListQueue();
 	//test_NodeList();
 	//test_ArrayQueue();
-	test_ArraySet();
+	//test_ArraySet();
+	test_ListSet();
 
 	std::cout << "Done with tests" << std::endl;
 
