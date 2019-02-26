@@ -407,7 +407,6 @@ void test_ArraySet() {
 
 void test_ListSet() {
 	ListSet<int> s;
-	std::cout << "empty " << s.empty() << std::endl;
 	s.insert(1);
 	s.insert(2);
 	s.insert(3);
@@ -425,8 +424,8 @@ int main() {
 	//test_ListQueue();
 	//test_NodeList();
 	//test_ArrayQueue();
-	//test_ArraySet();
-	test_ListSet();
+	test_ArraySet();
+	//test_ListSet();
 
 	std::cout << "Done with tests" << std::endl;
 

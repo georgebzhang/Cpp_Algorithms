@@ -14,6 +14,9 @@ private:
 
 	Node* head = nullptr;
 
+	bool empty() {
+		return head == nullptr;
+	}
 
 	Node* find(T t) {
 		Node* ptr = head;
@@ -26,12 +29,6 @@ private:
 	}
 
 public:
-
-
-	bool empty() {
-		return head == nullptr;
-	}
-
 	void insert(T t) {
 		if (has(t))
 			return;

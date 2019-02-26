@@ -5,7 +5,7 @@ template<typename T>
 class ArraySet : Set<T>
 {
 private:
-	int capacity = 100;
+	int capacity = 100; // will implement amortized doubling later
 	T* data = new T[capacity];
 	int length = 0;
 
@@ -36,11 +36,7 @@ public:
 	}
 
 	bool has(T t) {
-		for (int i = 0; i < length; ++i) {
-			if (t == data[i])
-				return true;
-		}
-		return false;
+		return find(t) != -1;
 	}
 
 	void print() {
