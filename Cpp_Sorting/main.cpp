@@ -304,6 +304,36 @@ void quick_sort_vec(std::vector<int>& vec) {
 	quick_sort_helper_vec(vec, 0, vec.size() - 1);
 }
 
+int binary_search_arr(const int* arr, int size, int val) {
+	int ind_left = 0;
+	int ind_right = size - 1;
+	while (ind_left <= ind_right) {
+		int ind_mid = (ind_left + ind_right) / 2;
+		int val_mid = arr[ind_mid];
+		if (val > val_mid) ind_left = ind_mid + 1;
+		else if (val < val_mid) ind_right = ind_mid - 1;
+		else return ind_mid;
+	}
+	return -1;
+}
+
+int binary_search_vec(const std::vector<int>& vec, int val) {
+	int ind_left = 0;
+	int ind_right = vec.size() - 1;
+	while (ind_left <= ind_right) {
+		int ind_mid = (ind_left + ind_right) / 2;
+		int val_mid = vec[ind_mid];
+		if (val > val_mid) ind_left = ind_mid + 1;
+		else if (val < val_mid) ind_right = ind_mid - 1;
+		else return ind_mid;
+	}
+	return -1;
+}
+
+//void const_test(const int* arr, int size) {
+//	arr[1] = 69;
+//}
+
 void test_sort() {
 	int test_arr[] = { 5, 27, 1, 7, -1, 2, 27, 9, 7, 3, 6 };
 	int size = sizeof(test_arr) / sizeof(test_arr[0]);
@@ -317,6 +347,9 @@ void test_sort() {
 
 	print_arr(test_arr, size);
 	print_vec(test_vec);
+
+	std::cout << binary_search_arr(test_arr, size, 5) << std::endl;
+	std::cout << binary_search_vec(test_vec, 5) << std::endl;
 }
 
 void test_ArrayStack() {
@@ -421,11 +454,8 @@ void test_ListSet() {
 int main() {
 	srand(69);
 
-	//test_ListQueue();
-	//test_NodeList();
-	//test_ArrayQueue();
-	//test_ArraySet();
-	test_ListSet();
+	test_sort();
+	//test_ListSet();
 
 	std::cout << "Done with tests" << std::endl;
 
