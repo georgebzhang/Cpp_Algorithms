@@ -317,7 +317,7 @@ int binary_search_arr(const int* arr, int size, int val) {
 		else if (val < val_mid) ind_right = ind_mid - 1;
 		else return ind_mid;
 	}
-	return ind_mid;
+	return ind_left; // LEFT NOT MID
 	// return -1; // standard binary search
 }
 
@@ -332,7 +332,7 @@ int binary_search_vec(const std::vector<int>& vec, int val) {
 		else if (val < val_mid) ind_right = ind_mid - 1;
 		else return ind_mid;
 	}
-	return ind_mid;
+	return ind_left; // LEFT NOT MID
 	// return -1; // standard binary search
 }
 
@@ -356,6 +356,13 @@ void test_sort() {
 
 	std::cout << binary_search_arr(test_arr, size, 7) << std::endl;
 	std::cout << binary_search_vec(test_vec, 4) << std::endl;
+}
+
+void test_binary_search() {
+	int test_arr[] = { 3, 5, 7, 9, 11, 14, 15 };
+	int size = sizeof(test_arr) / sizeof(test_arr[0]);
+
+	std::cout << binary_search_arr(test_arr, size, 12) << std::endl;
 }
 
 void test_ArrayStack() {
@@ -462,8 +469,11 @@ void test_ArrayOrderedSet() {
 	s.insert(3);
 	s.insert(24);
 	s.insert(7);
-	s.remove(5);
-	s.remove(0);
+	s.insert(17);
+	s.insert(100);
+	s.insert(95);
+	s.print();
+	s.remove(3);
 	s.print();
 }
 
@@ -482,7 +492,8 @@ void test_ListOrderedSet() {
 int main() {
 	srand(69);
 
-	test_ListOrderedSet();
+	//test_binary_search();
+	test_ArrayOrderedSet();
 
 	std::cout << "Done with tests" << std::endl;
 

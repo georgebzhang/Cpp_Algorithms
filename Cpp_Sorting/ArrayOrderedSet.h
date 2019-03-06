@@ -20,9 +20,14 @@ private:
 		data = data_new;
 	}
 
+	bool empty() {
+		return length == 0;
+	}
+
 	int find(T t) { // helper functions for remove(...) and has(...)
+		if (empty()) return 0;
 		int ind_left = 0;
-		int ind_right = length;
+		int ind_right = length - 1;
 		int ind_mid;
 		while (ind_left <= ind_right) {
 			ind_mid = (ind_left + ind_right) / 2;
@@ -31,7 +36,7 @@ private:
 			else if (t < val_mid) ind_right = ind_mid - 1;
 			else return ind_mid;
 		}
-		return ind_mid;
+		return ind_left; // LEFT NOT MID
 	}
 
 public:
