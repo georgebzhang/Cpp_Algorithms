@@ -20,12 +20,9 @@ private:
 		data = data_new;
 	}
 
-
-
 public:
 	void push(T t) {
-		if (length == capacity)
-			grow_array();
+		if (length == capacity) grow_array();
 		data[length] = t;
 		++length;
 	}

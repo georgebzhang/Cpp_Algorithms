@@ -50,12 +50,12 @@ public:
 			return;
 		bool prev_null = ptr_t->prev == nullptr;
 		bool next_null = ptr_t->next == nullptr;
-		if (!prev_null && !next_null) { // if Node with t is between head and tail (which doesn't exist)
+		if (!prev_null && !next_null) { // if Node with t is between head and tail (which we don't have a variable for)
 			ptr_t->prev->next = ptr_t->next;
 			ptr_t->next->prev = ptr_t->prev;
 			delete ptr_t;
 		}
-		else if (!prev_null) { // if Node with t is at tail (which doesn't exist)
+		else if (!prev_null) { // if Node with t is at tail (which we don't have a variable for)
 			ptr_t->prev->next = nullptr;
 			delete ptr_t;
 		}
@@ -65,19 +65,13 @@ public:
 			delete ptr_t;
 		}
 		else { // if Node with t is the only Node in Set
-			delete ptr_t;
 			head = nullptr;
+			delete ptr_t;
 		}
 	}
 
 	bool has(T t) {
-		Node* ptr = head;
-		while (ptr != nullptr) {
-			if (ptr->data == t)
-				return true;
-			ptr = ptr->next;
-		}
-		return false;
+		return find(t) != nullptr;
 	}
 
 	void print() {
