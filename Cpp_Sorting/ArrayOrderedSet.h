@@ -28,9 +28,8 @@ private:
 		if (empty()) return 0;
 		int ind_left = 0;
 		int ind_right = length - 1;
-		int ind_mid;
 		while (ind_left <= ind_right) {
-			ind_mid = (ind_left + ind_right) / 2;
+			int ind_mid = (ind_left + ind_right) / 2;
 			T val_mid = data[ind_mid];
 			if (t > val_mid) ind_left = ind_mid + 1;
 			else if (t < val_mid) ind_right = ind_mid - 1;

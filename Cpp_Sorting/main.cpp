@@ -309,9 +309,8 @@ void quick_sort_vec(std::vector<int>& vec) {
 int binary_search_arr(const int* arr, int size, int val) {
 	int ind_left = 0;
 	int ind_right = size - 1;
-	int ind_mid;
 	while (ind_left <= ind_right) {
-		ind_mid = (ind_left + ind_right) / 2;
+		int ind_mid = (ind_left + ind_right) / 2;
 		int val_mid = arr[ind_mid];
 		if (val > val_mid) ind_left = ind_mid + 1;
 		else if (val < val_mid) ind_right = ind_mid - 1;
@@ -324,9 +323,8 @@ int binary_search_arr(const int* arr, int size, int val) {
 int binary_search_vec(const std::vector<int>& vec, int val) {
 	int ind_left = 0;
 	int ind_right = vec.size() - 1;
-	int ind_mid;
 	while (ind_left <= ind_right) {
-		ind_mid = (ind_left + ind_right) / 2;
+		int ind_mid = (ind_left + ind_right) / 2;
 		int val_mid = vec[ind_mid];
 		if (val > val_mid) ind_left = ind_mid + 1;
 		else if (val < val_mid) ind_right = ind_mid - 1;
