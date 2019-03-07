@@ -54,8 +54,7 @@ public:
 			}
 			else {
 				n->prev = ptr_t;
-				ptr_t->prev->next = n;
-				ptr_t->prev = n;
+				ptr_t->next = n;
 			}
 		}
 		else if (!next_null) { // if Node with t is at head
@@ -91,7 +90,6 @@ public:
 			delete ptr_t;
 		}
 		else if (!prev_null) { // if Node with t is at tail (which we don't have a variable for)
-			std::cout << "hi" << std::endl;
 			ptr_t->prev->next = nullptr;
 			delete ptr_t;
 		}

@@ -482,8 +482,16 @@ void test_ListOrderedSet() {
 	s.insert(2);
 	s.insert(7);
 	s.insert(4);
+	s.insert(8);
+	s.insert(76);
+	s.insert(11);
+	s.insert(11111);
 	s.print();
 	s.remove(1);
+	s.print();
+	s.remove(11111);
+	s.print();
+	s.remove(7);
 	s.print();
 }
 
@@ -491,7 +499,7 @@ int main() {
 	srand(69);
 
 	//test_binary_search();
-	test_ArrayOrderedSet();
+	test_ListOrderedSet();
 
 	std::cout << "Done with tests" << std::endl;
 
