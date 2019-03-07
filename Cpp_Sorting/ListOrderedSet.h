@@ -26,7 +26,7 @@ private:
 		return nullptr;
 	}
 
-	void insert_Node_middle(Node* n, Node* ptr_t) { // inserts Node* n before Node* ptr_t, which must prev and next not nullptr
+	void insert_Node_middle(Node* n, Node* ptr_t) { // inserts Node* n before Node* ptr_t, which must have prev and next not nullptr
 		n->next = ptr_t;
 		n->prev = ptr_t->prev;
 		ptr_t->prev->next = n;
@@ -60,7 +60,7 @@ public:
 		else if (!next_null) { // if Node with t is at head
 			if (t < ptr_t->data) {
 				n->next = ptr_t;
-				ptr_t->prev = n;
+				head->prev = n;
 				head = n;
 			}
 			else {
