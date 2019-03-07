@@ -470,8 +470,8 @@ void test_ArrayOrderedSet() {
 	s.insert(17);
 	s.insert(100);
 	s.insert(95);
-	s.print();
-	s.remove(3);
+	s.insert(1);
+	s.insert(4);
 	s.print();
 }
 

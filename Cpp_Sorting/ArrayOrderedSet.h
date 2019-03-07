@@ -43,7 +43,7 @@ public:
 		if (has(t)) return;
 		if (length == capacity) grow_array();
 		int ind_t = find(t);
-		for (int i = ind_t; i < length; ++i) {
+		for (int i = length - 1; i >= ind_t; --i) { // must iterate backwards or else data is lost
 			data[i + 1] = data[i];
 		}
 		data[ind_t] = t;
