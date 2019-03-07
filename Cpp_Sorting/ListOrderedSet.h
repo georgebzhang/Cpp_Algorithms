@@ -19,11 +19,11 @@ private:
 
 	Node* find(T t) {
 		Node* ptr = head;
-		while (ptr != nullptr) {
+		while (true) {
 			if (t <= ptr->data || ptr->next == nullptr) return ptr; // return ptr also if it is the tail (which we don't have a variable for)
 			ptr = ptr->next;
 		}
-		return ptr;
+		return nullptr;
 	}
 
 	void insert_Node_middle(Node* n, Node* ptr_t) { // inserts Node* n before Node* ptr_t, which must prev and next not nullptr
